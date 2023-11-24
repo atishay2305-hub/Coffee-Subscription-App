@@ -28,7 +28,7 @@ let exportMethods = {
           ];
 
         preferredGrindSize = ["Small", "Medium", "Large"]
-        
+
           
 
         const userCollection = await users();
@@ -78,12 +78,13 @@ let exportMethods = {
     },
 
     async updateUser(firstName, lastName, username, DOB, email, password) {
-        firstName = validation.firstName;
-        lastName = validation.lastName;
-        username = validation.username;
-        DOB = validation.DOB;
-        email = validation.email;
-        password = validation.password;
+        firstName = validation.checkLegitName(firstName, 'First Name');
+        lastName = validation.checkLegitName(lastName, 'Last Name');
+        username = validation.checkName(username, 'Username');
+        DOB = validation.checkDOB(DOB, 'Date of Birth');
+        email = validation.checkEmail(email, 'Email');
+        password = validation.checkPassword(password, 'Password');
+
 
         const userCollection = await users();
         const user = await userCollection.findOne({ email: email });
