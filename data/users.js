@@ -4,13 +4,32 @@ import validation from '../validationChecker.js';
 import bcrypt from 'bcrypt';
 
 let exportMethods = {
-    async createUser(firstName, lastName, username, DOB, email, password) {
+    async createUser(firstName, lastName, username, DOB, email, password, preferences, preferredBlends, preferredGrindSize) {
         firstName = validation.checkLegitName(firstName, 'First Name');
         lastName = validation.checkLegitName(lastName, 'Last Name');
         username = validation.checkName(username, 'Username');
         DOB = validation.checkDOB(DOB, 'Date of Birth');
         email = validation.checkEmail(email, 'Email');
         password = validation.checkPassword(password, 'Password');
+
+        preferences = {
+            coffeeType: "Latte",
+            milkPreference: "Whole milk",
+            size: "Medium",
+            flavorAddins: [],
+            temperature: "Hot"
+          };          
+
+        preferredBlends = [
+            "House Blend",
+            "Colombian",
+            "French Roast",
+            "Vanilla Nut Blend",
+          ];
+
+        preferredGrindSize = ["Small", "Medium", "Large"]
+        
+          
 
         const userCollection = await users();
         const checkExist = await userCollection.findOne({ email: email });
