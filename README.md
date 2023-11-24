@@ -1,4 +1,4 @@
-# Coffee Subscription Management Web Application
+# Coffee Subscription Web Application
 
 Welcome to the Coffee Subscription Management Web Application! This platform is designed for coffee enthusiasts who want to enjoy a seamless experience managing their coffee subscriptions. With our application, users can explore a variety of coffee blends, customize their subscription preferences, and receive regular shipments of freshly roasted coffee right at their doorstep.
 
